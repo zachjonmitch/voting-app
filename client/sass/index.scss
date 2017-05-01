@@ -1,0 +1,215 @@
+$bp-xxlg: 2560px;
+$bp-xlg: 1920px;
+$bp-lg: 1440px;
+$bp-md: 1024px;
+$bp-sm: 768px;
+$bp-xs: 480px;
+
+$off-white-background: #f2f1f1;
+$green-primary: rgb(66, 171, 158);
+$red-primary: rgb(255, 88, 81);
+$grey-accent: #4C4F54;
+$blue-grey-accent: rgba(156,175,183,1);
+$blue-grey-text: rgba(117,133,140,1);
+$purple-button: rgba(79,93,117,1);
+
+$red-gradient: linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%);
+
+@mixin mq($width, $type) {
+  @media only screen and (#{$type}-width: $width) {
+    @content;
+  }
+}
+
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+body, html {
+    background: $off-white-background;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway';
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    &:hover {
+        color: inherit;
+        text-decoration: none;
+    }
+}
+
+#navigation, #navTrending {
+    width: 100%;
+    height: 49px;
+    position: absolute;
+    top: 0;
+    display: flex;
+    background: $off-white-background;
+    align-items: center;
+    color: black;
+    z-index: 100;
+    .menuLeft {
+        float: left;
+        width: 33%;
+        height: 100%;
+        line-height: 50px;
+        ul {
+            list-style: none;
+            text-align: left;
+            margin: 0;
+            padding: 0;
+        }
+        li {
+            display: inline-block;
+            font-size: 16px;
+            margin-left: 20px;
+        }
+    }
+    .brandCenter {
+        width: 33%;
+        height: 100%;
+        line-height: 50px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        text-align: center;
+        font-size: 25px;
+    }
+    .menuRight {
+        position: absolute;
+        right: 0;
+        width: 33%;
+        height: 100%;
+        line-height: 50px;
+        text-align: right;
+        .login {
+            background: grey;
+            text-align: center;
+            height: 100%;
+            width: 100px;
+            color: white;
+            font-size: 16px;
+            position: absolute;
+            right: 0;
+            cursor: pointer;
+        }
+    }
+}
+
+#dashboard {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: $green-primary;
+    color: $off-white-background;
+    height: 500px;
+    h1 {
+        font-size: 70px;
+        font-weight: bold;
+        margin-top: 10px;
+        width: 70%;
+        margin: 0 auto;
+        margin-bottom: 30px;
+    }
+    h2 {
+        margin-bottom: 0;
+        font-size: 22px;
+    }
+    button {
+        font-size: 20px;
+        background: $red-gradient;
+        border-radius: '3px';
+        border: 0;
+        color: white;
+        height: 48px;
+        text-transform: uppercase;
+        padding: 0 25px;
+        box-shadow: 0 3px 5px 2px rgba(255, 105, 135, .30);
+    }
+    .disclaimer {
+        position: absolute;
+        margin: 0 auto;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        h4 {
+            font-size: 15px;
+        }
+    }
+}
+
+#examplePoll {
+    width: 100%;
+    height: auto;
+    position: relative;
+    .pollBlueBackground {
+        width: 100%;
+        height: 290px;
+        background-color: $purple-button;
+    }
+    .pollGreyBackground {
+        width: 100%;
+        height: 290px;
+        background-color: $blue-grey-accent;
+    }
+    .pollCard {
+        position: absolute;
+        width: 91%;
+        height: 88%;
+        left: 0;
+        right: 0;
+        bottom:0;
+        margin: 0 auto;
+        background: $off-white-background;
+        z-index: 100;
+        .votePollLeft {
+            width: 50%;
+            height: 80%;
+            text-align: center;
+            h2 {
+                font-size: 29px;
+            }
+            input {
+                width: 75%;
+                height: 35px;
+                border: 1px solid grey;
+                border-radius: 5px;
+                margin: 0 auto;
+            }
+            .submit {
+                width: 75%;
+                height: 35px;
+                border-radius: 5px;
+                margin: 0 auto;
+                border: 1px solid grey;
+                background: grey;
+            }
+            .share {
+                width: 75%;
+                height: 35px;
+                border-radius: 5px;
+                margin: 0 auto;
+                border: 1px solid grey;
+                background: blue;
+            }
+        }
+    }
+}
+
+

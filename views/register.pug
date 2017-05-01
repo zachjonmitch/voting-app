@@ -1,0 +1,28 @@
+extends layout.pug
+
+block content
+    section(id="login")
+        div(class="loginCard")
+            div(class="cardOverlay")
+            h1(class="registerTitle") Welcome
+            hr
+            
+            form(method="post" class="registerForm")
+                div(class="form-group")
+                    label Username
+                    input(type="text" class="from-control loginUser" \
+                    placeholder="Username")
+                div(class="form-group")
+                    label Email
+                    input(type="email" class="from-control loginUser" \
+                    placeholder="Email")
+                div(class="form-group")
+                    label Password
+                    input(type="password" class="from-control loginUser" \
+                    placeholder="Password")
+                div(class="form-group")
+                    label Confirm Password
+                    input(type="password" class="form-control loginPW" \
+                    placeholder="Confirm Password")
+                button(type="submit") Sign Up
+                button(class="twitter") Connect with Twitter

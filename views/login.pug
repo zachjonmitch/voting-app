@@ -1,0 +1,21 @@
+extends layout.pug
+
+block content
+    section(id="login")
+        div(class="loginCard")
+            div(class="cardOverlay")
+            h1(class="loginTitle") Welcome
+            hr
+
+            form(method="post" class="loginForm")
+                div(class="form-group")
+                    label Username
+                    input(type="text" class="from-control loginUser" \
+                    placeholder="Username")
+                div(class="form-group")
+                    label Password
+                    input(type="password" class="form-control loginPW" \
+                    placeholder="Password")
+                button(type="submit") Login
+                button(class="twitter") Connect with Twitter
+                p Not registered? #[a(href="/register") Sign up here.]

@@ -1,0 +1,96 @@
+#login {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    background: url('https://www.toptal.com/designers/subtlepatterns/patterns/restaurant.png');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .loginCard {
+        position: relative;
+        width: 500px;
+        height: 70%;
+        padding: 50px;
+        z-index: 100;
+        .cardOverlay {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: $grey-accent;
+            opacity: .9;
+        }
+        .loginTitle, .registerTitle {
+            position: relative;
+            font-size: 35px;
+            color: white;
+            text-align: center;
+            margin: 30px 0 10px 0;
+        }
+        .registerTitle {
+            margin: 0;
+        }
+        hr {
+            position: relative;
+            width: 80%;
+            border-top: 1px solid grey;
+        }
+        p {
+            margin-top: 15px
+        }
+        a {
+            color: #54AEE9;
+            text-decoration: underline;
+        }
+        .loginForm, .registerForm {
+            position: relative;
+            width: 90%;
+            color: white;
+            margin: 40px auto;
+            label {
+                display: none;
+            }
+            .form-group {
+                margin-bottom: 10px;
+            }
+            input {
+                display: block;
+                width: 100%;
+                height: 44px;
+                padding: 6px 12px;
+                font-size: 14px;
+                line-height: 1.42857143;
+                color: white;
+                background: transparent;
+                border: 1px solid #ccc;
+                border-radius: 0;
+                box-shadow: none;
+                &:focus {
+                    outline: none;
+                    border: 1px solid white;
+                }
+                &::placeholder {
+                    color: white;
+                }
+            }
+            button {
+                width: 100%;
+                height: 48px;
+                border: 1px solid #54AEE9;
+                background: #54AEE9;
+                color: white;
+                margin-top: 15px;
+            }
+            .twitter {
+                background: transparent;
+                color: #54AEE9;
+                margin-top: 10px;
+            }
+        }
+        .registerForm {
+            margin: 30px auto;
+        }
+    }
+}
