@@ -5,22 +5,23 @@ block content
             nav(class="menuLeft")
                 ul
                     a(href="/")
-                        li Home
+                        li Home /
                     a(href="/trending")
-                        li Trending
+                        li Trending /
                     a(href="/recent")
                         li Recent
             div(class="brandCenter") VotePlex
             nav(class="menuRight")
-                a(href="/login") 
+                a(href="/users/login") 
                     div(class="login") Login
 
 
     section(id="dashboard")
         div(class="titleFlex")
-            h2 What would you like to do today?
-            h1 You've come to the right place!
-            button Sign Up
+            h1 Create | Vote | Share
+            h2 Sign up to create and vote on custom polls
+            a(href="/users/register")
+                button Sign Up
         div(class="disclaimer")
             h4 Created by Zach Mitchell | View on Github
 
@@ -29,9 +30,23 @@ block content
         div(class="pollBlueBackground")
         div(class="pollGreyBackground")
         div(class="pollCard")
-            div(class="votePollLeft")
+            div(class="pollCardLeft")
                 h2 What is your favorite color?
-                input
+                div(class="pollColor") Blue
+                div(class="pollColor") Red
+                div(class="pollColor") Green
+                div(class="pollColor") Orange
+                div(class="pollColor") Yellow
                 button(class="submit") Submit
                 button(class="share") Share on Twitter
             div(class="graphRight")
+                div(class="graphBar" id="barOne")
+                    div(class="innerGraphBar")
+                div(class="graphBar" id="barTwo")
+                    div(class="innerGraphBar")
+                div(class="graphBar" id="barThree")
+                    div(class="innerGraphBar")
+                div(class="graphBar" id="barFour")
+                    div(class="innerGraphBar")
+                div(class="graphBar" id="barFive")
+                    div(class="innerGraphBar")

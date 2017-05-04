@@ -1,4 +1,7 @@
-extends layout.pug
+extends layout-sub.pug
+
+block links
+    link(rel="stylesheet" href="../dist/cssmin/styles.min.css")
 
 block content
     section(id="login")
@@ -10,12 +13,16 @@ block content
             form(method="post" class="loginForm")
                 div(class="form-group")
                     label Username
-                    input(type="text" class="from-control loginUser" \
+                    input(type="text" class="from-control loginUser" name="username" \
                     placeholder="Username")
                 div(class="form-group")
                     label Password
-                    input(type="password" class="form-control loginPW" \
+                    input(type="password" class="form-control loginPW" name="password" \
                     placeholder="Password")
                 button(type="submit") Login
                 button(class="twitter") Connect with Twitter
-                p Not registered? #[a(href="/register") Sign up here.]
+                p Not registered? 
+                    a(href="/users/register") Sign up here.
+
+block scripts
+    script(src="../dist/jsmin/bundle.min.js")

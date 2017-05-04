@@ -3,7 +3,7 @@
     background: $green-primary;
     color: white;
     .login {
-        background-color: transparent !important;
+        border-left: 1px solid $off-white-background !important;
     }
 }
 
@@ -11,6 +11,7 @@
     width: 90%;
     height: auto;
     margin: 50px auto;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.6);
     .flexGrid {
         width: 100%;
         height: 100%;

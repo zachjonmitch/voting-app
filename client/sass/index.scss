@@ -7,11 +7,14 @@ $bp-xs: 480px;
 
 $off-white-background: #f2f1f1;
 $green-primary: rgb(66, 171, 158);
+$dark-green-accent: #6f7e7c;
+$light-green-accent: #c8e9e5;
 $red-primary: rgb(255, 88, 81);
 $grey-accent: #4C4F54;
 $blue-grey-accent: rgba(156,175,183,1);
-$blue-grey-text: rgba(117,133,140,1);
+$blue-grey-text: #3b4346;
 $purple-button: rgba(79,93,117,1);
+$twitter-blue: #54AEE9;
 
 $red-gradient: linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%);
 
@@ -35,7 +38,7 @@ body, html {
     height: 100%;
     margin: 0;
     padding: 0;
-    font-family: 'Raleway';
+    font-family: 'Open Sans', Helvetica;
 }
 
 *, *::before, *::after {
@@ -59,8 +62,9 @@ a {
     display: flex;
     background: $off-white-background;
     align-items: center;
-    color: black;
+    color: $blue-grey-text;
     z-index: 100;
+    font-weight: 600;
     .menuLeft {
         float: left;
         width: 33%;
@@ -70,12 +74,13 @@ a {
             list-style: none;
             text-align: left;
             margin: 0;
-            padding: 0;
+            padding-left: 20px;
         }
         li {
             display: inline-block;
-            font-size: 16px;
-            margin-left: 20px;
+            font-size: 15px;
+            margin-left: 5px;
+            letter-spacing: 3px;
         }
     }
     .brandCenter {
@@ -87,7 +92,8 @@ a {
         right: 0;
         margin: auto;
         text-align: center;
-        font-size: 25px;
+        font-size: 26px;
+        font-weight: 600;
     }
     .menuRight {
         position: absolute;
@@ -97,15 +103,15 @@ a {
         line-height: 50px;
         text-align: right;
         .login {
-            background: grey;
+            border-left: 1px solid $blue-grey-text;
             text-align: center;
             height: 100%;
             width: 100px;
-            color: white;
             font-size: 16px;
             position: absolute;
             right: 0;
             cursor: pointer;
+            font-weight: 700;
         }
     }
 }
@@ -118,28 +124,40 @@ a {
     text-align: center;
     background: $green-primary;
     color: $off-white-background;
-    height: 500px;
+    height: 600px;
+    width: 100%;
+    .titleFlex {
+        width: 100%;
+    }
     h1 {
-        font-size: 70px;
-        font-weight: bold;
-        margin-top: 10px;
-        width: 70%;
+        font-family: 'Raleway';
+        font-size: 92px;
+        font-weight: 900;
+        padding-top: 40px;
+        width: 90%;
         margin: 0 auto;
-        margin-bottom: 30px;
+        margin-bottom: 0;
+        text-transform: uppercase;
+        letter-spacing: 0;
+        color: $off-white-background;
     }
     h2 {
-        margin-bottom: 0;
-        font-size: 22px;
+        margin-bottom: 30px;
+        margin-top: 15px;
+        font-size: 27px;
+        letter-spacing: 3px;
+        color: #c8e9e5;
     }
     button {
         font-size: 20px;
+        font-weight: bold;
         background: $red-gradient;
         border-radius: '3px';
         border: 0;
         color: white;
-        height: 48px;
+        height: 50px;
         text-transform: uppercase;
-        padding: 0 25px;
+        padding: 0 60px;
         box-shadow: 0 3px 5px 2px rgba(255, 105, 135, .30);
     }
     .disclaimer {
@@ -160,7 +178,7 @@ a {
     position: relative;
     .pollBlueBackground {
         width: 100%;
-        height: 290px;
+        height: 380px;
         background-color: $purple-button;
     }
     .pollGreyBackground {
@@ -170,43 +188,85 @@ a {
     }
     .pollCard {
         position: absolute;
-        width: 91%;
-        height: 88%;
+        width: 90%;
+        height: 89%;
         left: 0;
         right: 0;
         bottom:0;
         margin: 0 auto;
         background: $off-white-background;
         z-index: 100;
-        .votePollLeft {
+        display: flex;
+        box-shadow: 0 5px 25px rgba(0,0,0,0.6);
+        .pollCardLeft {
             width: 50%;
-            height: 80%;
+            height: 100%;
             text-align: center;
             h2 {
-                font-size: 29px;
-            }
-            input {
+                font-size: 42px;
+                font-weight: 700;
+                text-align: left;
                 width: 75%;
-                height: 35px;
-                border: 1px solid grey;
-                border-radius: 5px;
                 margin: 0 auto;
+                padding-top: 40px;
+                padding-bottom: 20px;
+                letter-spacing: 3px;
+                color: $purple-button;
+                font-family: 'Raleway';
+            }
+            .pollColor {
+                width: 75%;
+                padding: 13px;
+                border: 2px solid grey;
+                margin: 5px auto;
+                text-align: left;
+                font-weight: 600;
             }
             .submit {
                 width: 75%;
-                height: 35px;
-                border-radius: 5px;
-                margin: 0 auto;
+                height: 50px;
+                margin: 20px auto 0 auto;
                 border: 1px solid grey;
-                background: grey;
+                background: $purple-button;
+                color: white;
+                font-weight: bold;
+
             }
             .share {
                 width: 75%;
-                height: 35px;
-                border-radius: 5px;
-                margin: 0 auto;
+                height: 50px;
+                margin: 2px auto 0 auto;
                 border: 1px solid grey;
-                background: blue;
+                background: $twitter-blue;
+                color: white;
+                font-weight: bold;
+            }
+        }
+        .graphRight {
+            width: 50%;
+            height: 100%;
+            display: flex;
+            align-items: flex-end;
+            padding-right: 80px;
+            .graphBar {
+                width: 20%;
+                height: 300px;
+                background: $purple-button;
+            }
+            #barOne {
+                height: 120px;
+            }
+            #barTwo {
+                height: 330px;
+            }
+            #barThree {
+                height: 190px;
+            }
+            #barFour {
+                height: 280px;
+            }
+            #barFive {
+                height: 400px;
             }
         }
     }
