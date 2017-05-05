@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const flash = require('connect-flash');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 
@@ -49,8 +50,7 @@ router.post('/register', (req, res) => {
     }
 });
 
-passport.use(new LocalStrategy(
-  (username, password, done) => {
+passport.use(new LocalStrategy((username, password, done) => {
       User.getUserByUsername(username, (err, user) => {
           if(err) throw err;
           if(!user) {

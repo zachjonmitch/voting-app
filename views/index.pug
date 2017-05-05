@@ -5,11 +5,11 @@ block content
             nav(class="menuLeft")
                 ul
                     a(href="/")
-                        li Home /
+                        li Home &nbsp /
                     a(href="/trending")
-                        li Trending /
+                        li &nbsp Trending &nbsp /
                     a(href="/recent")
-                        li Recent
+                        li &nbsp Recent
             div(class="brandCenter") VotePlex
             nav(class="menuRight")
                 a(href="/users/login") 
@@ -23,7 +23,7 @@ block content
             a(href="/users/register")
                 button Sign Up
         div(class="disclaimer")
-            h4 Created by Zach Mitchell | View on Github
+            h4 Created by #[a(href="https://www.linkedin.com/in/zjmitche/") Zach Mitchell] | #[a(href="https://github.com/zjmitche/voting-app/") View on Github]
 
 
     section(id="examplePoll")
@@ -40,13 +40,4 @@ block content
                 button(class="submit") Submit
                 button(class="share") Share on Twitter
             div(class="graphRight")
-                div(class="graphBar" id="barOne")
-                    div(class="innerGraphBar")
-                div(class="graphBar" id="barTwo")
-                    div(class="innerGraphBar")
-                div(class="graphBar" id="barThree")
-                    div(class="innerGraphBar")
-                div(class="graphBar" id="barFour")
-                    div(class="innerGraphBar")
-                div(class="graphBar" id="barFive")
-                    div(class="innerGraphBar")
+                canvas(id="myChart" width="300" height="300")
