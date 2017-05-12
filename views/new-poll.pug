@@ -1,0 +1,16 @@
+extends layout-sub.pug
+
+block links
+    link(rel="stylesheet" href="../dist/cssmin/styles.min.css")
+    
+block content
+    form(method="post" action="/polls/new-poll")
+        div(class="form-group")
+            label Poll Title
+            input(type="text" class="from-control" \
+            placeholder="Poll Title" name="pollTitle")
+        div(class="form-group")
+            label Username
+            input(type="text" class="from-control" \
+            placeholder="Poll Answers" name="pollAnswers")
+        button(type="pollSubmit") Sign Up

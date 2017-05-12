@@ -5,11 +5,16 @@ block links
 
 block content
     section(id="login")
-        div(class="loginCard")
+        div(class="loginCard" style=(errors ? 'padding-top:40px' : ''))
             div(class="cardOverlay")
-            h1(class="registerTitle") Welcome
+            h1(class="registerTitle" style=(errors ? 'margin-top:0px' : '')) Welcome
             hr
-            
+
+            if(errors)
+                div(id="errorsWrap")
+                    each error in errors
+                        li(id="regErrors")= error.msg
+
             form(method="post" action="/users/register" class="registerForm")
                 div(class="form-group")
                     label Email

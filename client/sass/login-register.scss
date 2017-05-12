@@ -95,3 +95,18 @@
         }
     }
 }
+
+#errorsWrap {
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+    #regErrors {
+        position: relative;
+        background: $grey-errors;
+        color: $red-errors;
+        margin-top: 2px;
+        margin-bottom: 2px;
+        padding: 4px;
+        font-size: 12px;
+    }
+}

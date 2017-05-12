@@ -10,6 +10,9 @@ block content
             h1(class="loginTitle") Welcome
             hr
 
+            if !error_msg
+                li(id="regErrors")= error.msg
+
             form(method="post" class="loginForm")
                 div(class="form-group")
                     label Username

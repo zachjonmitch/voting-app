@@ -17,6 +17,7 @@ mongoose.connect(db);
 const PORT = process.env.PORT || 8080;
 
 const routes = require('./server/routes/app.js');
+const polls = require('./server/routes/polls.js');
 const users = require('./server/routes/users.js');
 
 app.set('views', path.join(__dirname, 'views'));
@@ -60,11 +61,13 @@ app.use((req, res, next) => {
     res.locals.success_msg = req.flash('success_msg');
     res.locals.error_msg = req.flash('error_msg');
     res.locals.error = req.flash('error');
+    res.locals.user = req.user || null;
     next();
 });
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/polls', polls);
 
 app.use((req, res) => {
       res.status(400).status(500).render('error');

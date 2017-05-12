@@ -1,19 +1,27 @@
-extends layout.pug
+extends layout-sub.pug
 
+block links
+    link(rel="stylesheet" href="../dist/cssmin/styles.min.css")
+    
 block content
     section(id="navTrending")
             nav(class="menuLeft")
                 ul
                     a(href="/")
                         li Home &nbsp /
-                    a(href="/trending")
+                    a(href="/polls/trending")
                         li &nbsp Trending &nbsp /
-                    a(href="/recent")
+                    a(href="/polls/recent")
                         li &nbsp Recent
             div(class="brandCenter") VotePlex
             nav(class="menuRight")
-                a(href="/login") 
-                    div(class="login") Login
+
+                if !user
+                    a(href="/users/login") 
+                        div(class="login") Login
+                else
+                    a(href="/users/logout") 
+                        div(class="login") Logout
 
 
     section(id="pollWrap")

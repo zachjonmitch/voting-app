@@ -6,14 +6,19 @@ block content
                 ul
                     a(href="/")
                         li Home &nbsp /
-                    a(href="/trending")
+                    a(href="/polls/trending")
                         li &nbsp Trending &nbsp /
-                    a(href="/recent")
+                    a(href="/polls/recent")
                         li &nbsp Recent
             div(class="brandCenter") VotePlex
             nav(class="menuRight")
-                a(href="/users/login") 
-                    div(class="login") Login
+
+                if !user
+                    a(href="/users/login") 
+                        div(class="login") Login
+                else
+                    a(href="/users/logout") 
+                        div(class="login") Logout
 
 
     section(id="dashboard")
@@ -35,9 +40,16 @@ block content
                 div(class="pollColor") Blue
                 div(class="pollColor") Red
                 div(class="pollColor") Green
-                div(class="pollColor") Orange
+                div(class="pollColor") Purple
                 div(class="pollColor") Yellow
                 button(class="submit") Submit
                 button(class="share") Share on Twitter
             div(class="graphRight")
                 canvas(id="myChart" width="300" height="300")
+                div(class="legend")
+                    ul
+                        li Yellow
+                        li Purple
+                        li Red
+                        li Green
+                        li Blue

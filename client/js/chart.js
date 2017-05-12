@@ -7,11 +7,11 @@ let doughnutChart = new Chart(CHART, {
         datasets: [
             {
                 label: 'Points',
-                backgroundColor: ['#f1c40f', '#e67e22', '#16a085', '#2980b9', '#2980b9'],
+                backgroundColor: ['#754373', '#d03b3d', '#16a085', '#2980b9', '#ffd300'],
                 data: [10, 20, 55, 30, 10]
             }
         ],
-        labels: ['blue', 'red', 'green', 'orange', 'yellow']
+        labels: ['purple', 'red', 'green', 'blue', 'yellow']
     },
     options: {
             legend: false,
