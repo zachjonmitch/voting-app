@@ -1,0 +1,93 @@
+#navPollDetails {
+    position: absolute;
+    background: $green-primary;
+    color: white;
+    z-index: 100;
+    .login {
+        border-left: 1px dashed $off-white-background !important;
+    }
+}
+
+#pollDetailsWrap {
+    background: $purple-button;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .pollDetailsCard {
+        width: 93%;
+        height: 85%;
+        background: $off-white-background;
+        margin-top: 50px;
+        display: flex;
+        box-shadow: 0 5px 25px rgba(0,0,0,0.6);
+        .pollInfo {
+            width: 50%;
+            height: 100%;
+            text-align: center;
+            h2 {
+                font-size: 46px;
+                font-weight: 900;
+                text-align: left;
+                width: 90%;
+                margin: 0 auto;
+                padding-top: 90px;
+                padding-bottom: 30px;
+                padding-left: 60px;
+                letter-spacing: 3px;
+                color: $grey-accent;
+                text-transform: uppercase;
+            }
+            .pollColor {
+                width: 75%;
+                padding: 15px;
+                border: 1px solid $grey-accent;
+                margin: 5px auto;
+                text-align: left;
+                font-weight: 800;
+                background: #e9e7e7;
+                color: $grey-accent;
+                cursor: pointer;
+                &:hover {
+                    border-left: 10px solid $green-primary;
+                }
+                &:active {
+                    border-left: 10px solid $green-primary;
+                }
+                &:focus {
+                    border-left: 10px solid $green-primary;
+                }
+            }
+            .submit {
+                width: 75%;
+                height: 50px;
+                margin: 20px auto 0 auto;
+                border: 1px solid grey;
+                background: $purple-button;
+                color: white;
+                font-weight: bold;
+                &:hover {
+                    opacity: .9;
+                }
+
+            }
+            .share {
+                width: 75%;
+                height: 50px;
+                margin: 3px auto 0 auto;
+                border: 1px solid grey;
+                background: $twitter-blue;
+                color: white;
+                font-weight: bold;
+                &:hover {
+                    opacity: .9;
+                }
+            }
+        }
+        .pollGraph {
+            width: 50%;
+        }
+    }
+}

@@ -1,0 +1,13 @@
+#profileWrap {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: $purple-button;
+    .profileCard {
+        width: 85%;
+        height: 85%;
+        background: $off-white-background;
+        text-align: center;
+        margin: 0 auto;
+    }
+}

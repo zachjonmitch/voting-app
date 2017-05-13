@@ -4,4 +4,28 @@ block links
     link(rel="stylesheet" href="../dist/cssmin/styles.min.css")
 
 block content
-    <h1>PROFILE</h1>
+    section(id="navTrending")
+            nav(class="menuLeft")
+                ul
+                    a(href="/")
+                        li Home &nbsp /
+                    a(href="/polls/trending")
+                        li &nbsp Trending &nbsp /
+                    a(href="/polls/recent")
+                        li &nbsp Recent
+            div(class="brandCenter") VotePlex
+            nav(class="menuRight")
+
+                if !user
+                    a(href="/users/login") 
+                        div(class="login") Login
+                else
+                    a(href="/users/logout") 
+                        div(class="login") Logout
+
+    section(id="profileWrap")
+        div(class="profileCard")
+            h1 Hello Zjmitche!
+            h2 View your polls below or create a new one
+            hr
+            h2 You dont have any polls!

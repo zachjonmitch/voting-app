@@ -3,6 +3,19 @@ const router = express.Router();
 
 const Poll = require('../models/poll.js');
 
+router.param('pollid', (req, res, next, pollid) => {
+    Poll.findOne({pollid: pollid}, (err, poll) => {
+        if (err) {
+            res.status(200).render('error');
+        } else if (poll) {
+            req.poll = poll;
+            next();
+        } else {
+            res.status(200).render('error');
+        }
+    });
+});
+
 router.get('/trending', (req, res) => {
     res.status(200).render('trending');
 });
@@ -43,17 +56,8 @@ router.post('/new-poll', (req, res) => {
 });
 
 router.get('/:pollid', (req, res) => {
-    const testing = req.params.pollid;
-    Poll.findOne({pollid: testing}, (err, isMatch) => {
-        if (err || isMatch === null) {
-            console.log("ERROR");
-            console.log("hello");
-        } else {
-            res.status(200).render('poll-details');
-            console.log("It worked");
-        }
-    })
-    console.log(testing);
+    res.status(200).render('poll-details');
+    console.log(req.poll);
 });
 
 module.exports = router;

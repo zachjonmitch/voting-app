@@ -4,4 +4,42 @@ block links
     link(rel="stylesheet" href="../dist/cssmin/styles.min.css")
     
 block content
-    <h1>HELLO WORLD</h1>
+    section(id="navPollDetails")
+            nav(class="menuLeft")
+                ul
+                    a(href="/")
+                        li Home &nbsp /
+                    a(href="/polls/trending")
+                        li &nbsp Trending &nbsp /
+                    a(href="/polls/recent")
+                        li &nbsp Recent
+            div(class="brandCenter") VotePlex
+            nav(class="menuRight")
+
+                if !user
+                    a(href="/users/login") 
+                        div(class="login") Login
+                else
+                    a(href="/users/logout") 
+                        div(class="login") Logout
+
+    section(id="pollDetailsWrap")
+        div(class="pollDetailsCard")
+            div(class="pollInfo")
+                h2 What is your favorite color?
+                div(class="pollColor") Blue
+                div(class="pollColor") Red
+                div(class="pollColor") Green
+                div(class="pollColor") Purple
+                div(class="pollColor") Yellow
+                button(class="submit") Submit
+                button(class="share") Share on Twitter
+            div(class="pollGraph")
+                canvas(id="myChart" width="300" height="300")
+                div(class="legend")
+                    ul
+                        li Yellow
+                        li Purple
+                        li Red
+                        li Green
+                        li Blue

@@ -36,13 +36,12 @@ passport.deserializeUser((id, done) => {
 router.param('userid', (req, res, next, userid) => {
     User.findOne({userid: userid}, (err, user) => {
         if (err) {
-            next(err);
-            console.log('Hello World')
+            res.status(200).render('error');
         } else if (user) {
             req.user = user;
             next();
         } else {
-            next(new Error('failed to load user'));
+            res.status(200).render('error');
         }
     });
 });
@@ -110,7 +109,7 @@ router.post('/register', (req, res) => {
 });
 
 router.get('/:userid', function(req, res) {
-    console.log(req.user);
-})
+    res.status(200).render('profile');
+});
 
 module.exports = router;
