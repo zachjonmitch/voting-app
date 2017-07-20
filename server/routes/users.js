@@ -33,35 +33,18 @@ passport.deserializeUser((id, done) => {
   });
 });
 
-router.param('userid', (req, res, next, userid) => {
-    User.findOne({userid: userid}, (err, user) => {
-        if (err) {
-            res.status(200).render('error');
-        } else if (user) {
-            req.user = user;
-            next();
-        } else {
-            res.status(200).render('error');
-        }
-    });
-});
-
 router.get('/login', (req, res) => {
     res.status(200).render('login');
 });
 
 router.post('/login',
-    passport.authenticate('local', {successRedirect:'/', failureRedirect:'/users/login', failureFlash: true}),
-    (req,res,err) => {
-        if(err) {
-            req.flash('error_msg', 'Incorrect username or password');
-            console.log(error_msg);
-        } else {
-            res.redirect('/');
-        }
+    passport.authenticate('local'),
+    (req,res) => {
+        res.redirect('/users/' + req.user.userid);
+        console.log(req.user);
 });
 
-router.get('/logout', function(req, res) {
+router.get('/logout', (req, res) => {
     req.logout();
 
     req.flash('success_msg', 'You are logged out');
@@ -102,14 +85,20 @@ router.post('/register', (req, res) => {
             if(err) throw err;
             console.log(user);
             passport.authenticate('local')(req, res, () => {
-                res.redirect('/');
+                res.redirect('/users/' + req.user.userid);
             });
         });
     }       
 });
 
-router.get('/:userid', function(req, res) {
-    res.status(200).render('profile');
+router.get('/:userid', (req, res) => {
+    if(req.user && req.user.userid === req.params.userid) {
+        const username = req.user.username;
+        const userPolls = req.user.polls;
+        res.status(200).render('profile', {username: username, userPolls: userPolls});
+    } else {
+        res.status(200).render('error');
+    }
 });
 
 module.exports = router;

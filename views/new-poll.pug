@@ -4,13 +4,36 @@ block links
     link(rel="stylesheet" href="../dist/cssmin/styles.min.css")
     
 block content
-    form(method="post" action="/polls/new-poll")
-        div(class="form-group")
-            label Poll Title
-            input(type="text" class="from-control" \
-            placeholder="Poll Title" name="pollTitle")
-        div(class="form-group")
-            label Username
-            input(type="text" class="from-control" \
-            placeholder="Poll Answers" name="pollAnswers")
-        button(type="pollSubmit") Sign Up
+    section(id="navPollDetails")
+            nav(class="menuLeft")
+                ul
+                    a(href="/")
+                        li Home &nbsp /
+                    a(href="/polls/trending")
+                        li &nbsp Trending &nbsp /
+                    a(href="/polls/recent")
+                        li &nbsp Recent
+            div(class="brandCenter") VotePlex
+            nav(class="menuRight")
+
+                if !user
+                    a(href="/users/login") 
+                        div(class="login") Login
+                else
+                    a(href="/users/logout") 
+                        div(class="login") Logout
+    
+    section(id="newPollWrap")
+        div(class="newPollCard")
+            h1(class="newPollTitle") Create Your Poll
+            hr
+            form(method="post" action="/polls/new-poll")
+                div(class="form-group")
+                    label Poll Title
+                    input(type="text" class="inputTitle" \
+                    placeholder="Name your poll" name="pollTitle")
+                div(class="form-group")
+                    label Poll Answers
+                    input(type="text" class="inputAnswers" \
+                    placeholder="Up to five answers seperated by commas (one,two,three,four,five)" name="pollAnswers")
+                button(type="pollSubmit") Submit Poll

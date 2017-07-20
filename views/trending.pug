@@ -1,6 +1,7 @@
 extends layout-sub.pug
 
 block links
+    -var trendRecent = 'Trending' 
     link(rel="stylesheet" href="../dist/cssmin/styles.min.css")
     
 block content
@@ -25,58 +26,25 @@ block content
 
 
     section(id="pollWrap")
-        div(class="flexGrid")
-            div(class="flexPolls")
-                div(class="innerFlexPolls")
-                    h2 What is your favorite color?
-                    p Blue...
-                    p Red...
-                    button Details
-            div(class="flexPolls")
-                div(class="innerFlexPolls")
-                    h2 What is your favorite color?
-                    p Blue...
-                    p Red...
-                    button Details
-            div(class="flexPolls")
-                div(class="innerFlexPolls")
-                    h2 What is your favorite color?
-                    p Blue...
-                    p Red...
-                    button Details
-            div(class="flexPolls")
-                div(class="innerFlexPolls")
-                    h2 What is your favorite color?
-                    p Blue...
-                    p Red...
-                    button Details
-            div(class="flexPolls")
-                div(class="innerFlexPolls")
-                    h2 What is your favorite color?
-                    p Blue...
-                    p Red...
-                    button Details
-            div(class="flexPolls")
-                div(class="innerFlexPolls")
-                    h2 What is your favorite color?
-                    p Blue...
-                    p Red...
-                    button Details
-            div(class="flexPolls")
-                div(class="innerFlexPolls")
-                    h2 What is your favorite color?
-                    p Blue...
-                    p Red...
-                    button Details
-            div(class="flexPolls")
-                div(class="innerFlexPolls")
-                    h2 What is your favorite color?
-                    p Blue...
-                    p Red...
-                    button Details
-            div(class="flexPolls")
-                div(class="innerFlexPolls")
-                    h2 What is your favorite color?
-                    p Blue...
-                    p Red...
-                    button Details
+        div(class="pollCard")
+            div(class="trendingTitle")
+                h1 #{trendRecent} Polls
+                hr
+            div(class="flexGrid")                
+
+                if polls
+                        each item in polls
+                            div(class="flexPolls")
+                                div(class="innerFlexPolls")
+                                    -var testing = item.pollAnswers.split(',')
+                                    -var sliced = testing.slice(0, 3)
+                                    h2 #{item.pollTitle}
+                                    
+                                    each answer in sliced
+                                        p #{answer}
+
+                                    if testing.length > 3
+                                        h6 More answers
+                                    
+                                    a(href="/polls/" + item.pollid)
+                                        button Details

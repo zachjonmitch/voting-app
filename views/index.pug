@@ -45,11 +45,9 @@ block content
                 button(class="submit") Submit
                 button(class="share") Share on Twitter
             div(class="graphRight")
-                canvas(id="myChart" width="300" height="300")
-                div(class="legend")
-                    ul
-                        li Yellow
-                        li Purple
-                        li Red
-                        li Green
-                        li Blue
+                canvas(id="myChart" width="500" height="500")
+    
+    script.
+        window.onload = function() {
+            getDefaultChart();
+        }

@@ -25,21 +25,32 @@ block content
 
     section(id="pollDetailsWrap")
         div(class="pollDetailsCard")
+            div(id="likeButton")
+                h4 +1
+            h5(class="likeCount") #{poll.likeCount}
             div(class="pollInfo")
-                h2 What is your favorite color?
-                div(class="pollColor") Blue
-                div(class="pollColor") Red
-                div(class="pollColor") Green
-                div(class="pollColor") Purple
-                div(class="pollColor") Yellow
-                button(class="submit") Submit
-                button(class="share") Share on Twitter
+
+                if (poll)
+                    h2 #{poll.pollTitle}
+                    
+                form(method="post" action="/polls/" + poll.pollid)
+                    fieldset
+                        div(id="pollGroup")
+
+                            -for (var i = 0; i < pollAnswers.length; i++)
+                                div(class="pollAnswer")
+                                    input(class="pollCheck" type="radio" name="radioChoice"  id="radio-choice-" + i  value=pollAnswers[i] required)
+                                    div(class="pollLabel")
+                                        label(for="radio-choice-" + i) #{pollAnswers[i]}
+
+                    button(class="submit") Submit
+                    button(class="share") Share on Twitter
+
             div(class="pollGraph")
-                canvas(id="myChart" width="300" height="300")
-                div(class="legend")
-                    ul
-                        li Yellow
-                        li Purple
-                        li Red
-                        li Green
-                        li Blue
+                canvas(id="myChart" width="520" height="520")
+                
+    script.
+        window.onload = function() {
+            getPollAnswers();
+            userLikedPoll();
+        }

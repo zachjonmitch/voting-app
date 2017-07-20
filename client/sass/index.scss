@@ -10,10 +10,12 @@ $green-primary: rgb(66, 171, 158);
 $dark-green-accent: #6f7e7c;
 $light-green-accent: #c8e9e5;
 $red-primary: rgb(255, 88, 81);
+$grey-primary: #474747;
 $grey-accent: #4C4F54;
 $blue-grey-accent: rgba(156,175,183,1);
 $blue-grey-text: #3b4346;
 $purple-button: rgba(79,93,117,1);
+$blue-button: #627882;
 $twitter-blue: #54AEE9;
 $red-errors: #c7254e;
 $grey-errors: #d9d9d9;
@@ -56,7 +58,7 @@ a {
     }
 }
 
-#navigation, #navTrending, #navPollDetails {
+#navigation, #navTrending, #navPollDetails, #navProfile {
     width: 100%;
     height: 49px;
     position: absolute;
@@ -218,7 +220,7 @@ a {
                 text-align: left;
                 width: 75%;
                 margin: 0 auto;
-                padding-top: 50px;
+                padding-top: 40px;
                 padding-bottom: 20px;
                 padding-left: 10px;
                 letter-spacing: 3px;
@@ -273,54 +275,16 @@ a {
         }
         .graphRight {
             position: relative;
-            width: 35%;
+            width: 50%;
             height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
             margin: 0 auto;
+            padding-right: 50px;
             canvas {
                 position: absolute;
-                top: 12%;
-            }
-            .legend {
-                position: absolute;
-                bottom: 1%;
-                width: 100%;
-                height: 40px;
-                ul {
-                    list-style: none;
-                    margin: 0 auto;
-                    padding: 0;
-                    width: 375px;
-                }
-                li {
-                    display: inline-block;
-                    font-size: 13px;
-                    font-weight: bold;
-                    height: 30px;
-                    width: 60px;
-                    margin: 7px;
-                    background: grey;
-                    text-align: center;
-                    color: white;
-                    line-height: 30px;
-                    &:first-child {
-                        background: #ffd300;
-                    }
-                    &:nth-child(2) {
-                        background: #754373;
-                    }
-                     &:nth-child(3) {
-                        background: #d03b3d;
-                    }
-                     &:nth-child(4) {
-                        background: #16a085;
-                    }
-                    &:last-child {
-                        background: #2980b9;
-                    }
-                }
+                bottom: 4%;
             }
         }
     }

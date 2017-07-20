@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const shortid = require('shortid');
+const Schema = require('mongoose').Schema;
 
 const UserSchema = mongoose.Schema({
     username: {
@@ -17,7 +18,10 @@ const UserSchema = mongoose.Schema({
         type: String,
         unique: true,
         default: shortid.generate
-    }
+    },
+    polls: [
+        
+    ]
 });
 
 const User = module.exports = mongoose.model('User', UserSchema);

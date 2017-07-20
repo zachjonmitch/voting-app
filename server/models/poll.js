@@ -13,7 +13,12 @@ const PollSchema = mongoose.Schema({
         type: String,
         unique: true,
         default: shortid.generate
-    }
+    },
+    likeCount: {
+        type: Number,
+        default: 0
+    },
+    likes: []
 });
 
 const Poll = module.exports = mongoose.model('Poll', PollSchema);

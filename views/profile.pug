@@ -4,7 +4,7 @@ block links
     link(rel="stylesheet" href="../dist/cssmin/styles.min.css")
 
 block content
-    section(id="navTrending")
+    section(id="navProfile")
             nav(class="menuLeft")
                 ul
                     a(href="/")
@@ -23,9 +23,23 @@ block content
                     a(href="/users/logout") 
                         div(class="login") Logout
 
-    section(id="profileWrap")
-        div(class="profileCard")
-            h1 Hello Zjmitche!
+    section(id="profileWrap" style=(userPolls.length >= 6 ? "height:auto;" : "height:100%;"))
+        div(class="profileCard" style=(userPolls.length >= 6 ? "height:auto;" : "height:85%;"))
+            h1 Hello #{username}!
             h2 View your polls below or create a new one
             hr
-            h2 You dont have any polls!
+            
+            div(class="profilePolls")
+                div(class="flexGrid")
+
+                    if userPolls
+                        each item in userPolls.reverse()
+                            div(class="flexPolls")
+                                div(class="innerFlexPolls")
+                                    h2 #{item.pollTitle}
+                                    p #{item.pollAnswers}
+                                    a(href="/polls/" + item.pollid)
+                                        button Details
+
+                    else
+                        p You dont have any polls!

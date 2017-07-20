@@ -39,7 +39,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(expressValidator({
-  errorFormatter: function(param, msg, value) {
+  errorFormatter: (param, msg, value) => {
       var namespace = param.split('.')
       , root    = namespace.shift()
       , formParam = root;
@@ -57,6 +57,7 @@ app.use(expressValidator({
 
 app.use(flash());
 
+//Global Variables
 app.use((req, res, next) => {
     res.locals.success_msg = req.flash('success_msg');
     res.locals.error_msg = req.flash('error_msg');
@@ -69,6 +70,7 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/polls', polls);
 
+//Error page if not found
 app.use((req, res) => {
       res.status(400).status(500).render('error');
 });
