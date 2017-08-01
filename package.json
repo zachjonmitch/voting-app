@@ -7,7 +7,8 @@
     "node": "6.9.4"
   },
   "scripts": {
-    "start": "nodemon server.js -e js,pug,css",
+    "start": "node server.js",
+    "start-watch": "nodemon server.js -e js,pug,css",
     "build": "start npm run build-scss && start npm run babel-client && start npm run build-js",
     "build-scss": "sass --watch client/sass/styles.scss:client/dist/cssmin/styles.min.css --style compressed",
     "build-js": "onchange \"client/js/*.js\" -- npm run uglify",
