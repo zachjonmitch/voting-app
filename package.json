@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Custom poll creation app",
   "main": "server.js",
+  "engines": {
+    "node": "6.9.4"
+  },
   "scripts": {
     "start": "nodemon server.js -e js,pug,css",
     "build": "start npm run build-scss && start npm run babel-client && start npm run build-js",
