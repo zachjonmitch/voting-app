@@ -9,9 +9,11 @@ const session = require('express-session');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 
+app.set('port', (process.env.PORT || 4000));
+
 const mongodb = require('mongodb');
 const mongoose = require('mongoose');
-const db = 'mongodb://localhost/voting-app';
+const db = 'mongodb://user:user12345@ds141078.mlab.com:41078/customvotes';
 mongoose.connect(db);
 
 const PORT = process.env.PORT || 8080;
@@ -74,7 +76,8 @@ app.use('/polls', polls);
 app.use((req, res) => {
       res.status(400).status(500).render('error');
 });
-      
-app.listen(PORT, () => {
-    console.log('Listening on port ' + PORT);
+
+//Start Server
+app.listen(app.get('port'), function() {
+  console.log('Node app is running on port', app.get('port'));
 });
