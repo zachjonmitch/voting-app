@@ -25,7 +25,7 @@ block content
                         div(class="login") Logout
 
 
-    section(id="pollWrap")
+    section(id=(polls.length > 3 ? 'pollWrap' : 'pollWrapFull'))
         div(class="pollCard")
             div(class="trendingTitle")
                 h1 #{trendRecent} Polls

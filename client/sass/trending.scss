@@ -7,7 +7,7 @@
     }
 }
 
-#pollWrap {
+#pollWrap, #pollWrapFull {
     width: 100%;
     height: auto;
     padding: 55px 45px 0 45px;
@@ -104,4 +104,8 @@
             }
         }
     }
+}
+
+#pollWrapFull {
+    height: 100%;
 }
